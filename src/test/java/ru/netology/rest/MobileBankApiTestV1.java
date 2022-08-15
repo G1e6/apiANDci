@@ -6,23 +6,24 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
 class MobileBankApiTestV1 {
+
     @Test
     void shouldReturnDemoAccounts() {
         // Given - When - Then
         // Предусловия
         given()
-                .baseUri("https://postman-echo.com")
-                .contentType("text/plain; charset=UTF-8")
-                .body("some data")
+                .baseUri("http://localhost:9999/api/v1")
+                // Выполняемые действия
                 .when()
-                .post("/post")
+                .get("/demo/accounts")
+                // Проверки
                 .then()
                 .statusCode(200)
-                .body("data", equalTo("some data"))
-                .body("data", equalTo("some value"))
-        ;
+                ;
+
 
     }
+
 
     @Test
     void shouldReturnDemoAccounts1() {
