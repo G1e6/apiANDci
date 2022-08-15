@@ -11,13 +11,16 @@ class MobileBankApiTestV1 {
         // Given - When - Then
         // Предусловия
         given()
-                .baseUri("http://localhost:9999/api/v1")
-                // Выполняемые действия
+                .baseUri("https://postman-echo.com")
+                .contentType("text/plain; charset=UTF-8")
+                .body("some data")
                 .when()
-                .get("/demo/accounts")
-                // Проверки
+                .post("/post")
                 .then()
-                .statusCode(200);
+                .statusCode(200)
+                .body("data", equalTo("some data"))
+                .body("data", equalTo("some value"))
+        ;
 
     }
 
