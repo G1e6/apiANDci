@@ -19,10 +19,7 @@ class MobileBankApiTestV1 {
                 .get("/demo/accounts")
                 // Проверки
                 .then()
-                .statusCode(200)
-        ;
-
-
+                .statusCode(200);
     }
 
 
@@ -39,8 +36,6 @@ class MobileBankApiTestV1 {
                 .then()
                 .statusCode(200)
                 .body(matchesJsonSchemaInClasspath("accounts.schema.json"));
-
-
     }
 
     @Test
